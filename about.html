@@ -233,13 +233,10 @@
 </div>
 <script>
 setTimeout(function() {
-  if (!sessionStorage.getItem('waPopupClosed')) {
-    document.getElementById('waPopup').classList.add('show');
-  }
+  document.getElementById('waPopup').classList.add('show');
 }, 4000);
 function closeWaPopup() {
   document.getElementById('waPopup').classList.remove('show');
-  sessionStorage.setItem('waPopupClosed', '1');
 }
 </script>
 </body>
