@@ -404,6 +404,7 @@ function closeModalOnBackdrop(e) {
 }
 setTimeout(function() {
   document.getElementById('waPopup').classList.add('show');
+  setTimeout(closeWaPopup, 10000);
 }, 4000);
 function closeWaPopup() {
   document.getElementById('waPopup').classList.remove('show');
