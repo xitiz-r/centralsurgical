@@ -314,14 +314,34 @@
   </div>
 </footer>
 
+<!-- WHATSAPP POPUP -->
+<div class="wa-popup" id="waPopup">
+  <button class="wa-popup-close" onclick="closeWaPopup()">✕</button>
+  <div class="wa-popup-header">
+    <div class="wa-popup-avatar"><i class="fa-brands fa-whatsapp"></i></div>
+    <div><div class="wa-popup-name">Central Surgical</div><div class="wa-popup-status">● Online</div></div>
+  </div>
+  <div class="wa-popup-msg">👋 Hi! Looking for medical equipment? We're here to help. Send us a message!</div>
+  <a href="https://wa.me/9779851181090?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20your%20medical%20equipment." target="_blank" class="wa-popup-cta" onclick="closeWaPopup()"><i class="fa-brands fa-whatsapp"></i> Chat with us</a>
+</div>
+
 <!-- FLOATING CONTACT -->
 <div class="float-contact">
-  
-
-  <a href="https://wa.me/9779851181090" target="_blank" class="float-btn whatsapp"><span class="float-tooltip">WhatsApp (Text Only)</span><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://wa.me/9779851181090" target="_blank" class="float-btn whatsapp" onclick="closeWaPopup()"><span class="float-tooltip">WhatsApp (Text Only)</span><i class="fa-brands fa-whatsapp"></i></a>
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=centralsurgical77@gmail.com&su=Enquiry%20from%20Website" target="_blank" class="float-btn email"><span class="float-tooltip">Email Us</span><i class="fa-solid fa-envelope"></i></a>
   <a href="tel:+97715242590" class="float-btn call"><span class="float-tooltip">+977 1-5242590 (Office Hours)</span><i class="fa-solid fa-phone"></i></a>
 </div>
 
+<script>
+setTimeout(function() {
+  if (!sessionStorage.getItem('waPopupClosed')) {
+    document.getElementById('waPopup').classList.add('show');
+  }
+}, 4000);
+function closeWaPopup() {
+  document.getElementById('waPopup').classList.remove('show');
+  sessionStorage.setItem('waPopupClosed', '1');
+}
+</script>
 </body>
 </html>
