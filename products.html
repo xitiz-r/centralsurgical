@@ -5,7 +5,7 @@
   <title>Products | Central Surgical Concern Pvt. Ltd.</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
   <link rel="stylesheet" href="style.css" />
   <style>
     /* Category tabs */
@@ -55,7 +55,7 @@
 <!-- NAVBAR -->
 <nav>
   <a href="index.html" class="nav-brand">
-    <img src="logo.png" class="logo-svg" alt="Central Surgical Concern Logo" />
+    <img src="images/logo.png" class="logo-svg" alt="Central Surgical Concern Logo" />
     <div class="nav-name"><span class="n1">Central Surgical Concern</span><span class="n2">Pvt. Ltd. · Kathmandu, Nepal</span></div>
   </a>
   <ul class="nav-links">
@@ -119,7 +119,10 @@
           <div class="item-row"><i class="fa-solid fa-check-circle"></i> Curettes</div>
           <div class="item-row"><i class="fa-solid fa-check-circle"></i> Dissection Sets</div>
         </div>
-        <button class="btn btn-blue" onclick="openModal('Surgical Instruments')"><i class="fa-solid fa-paper-plane"></i> Enquire About This Category</button>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:4px;">
+          <button class="btn btn-blue" onclick="openModal('Surgical Instruments')"><i class="fa-solid fa-paper-plane"></i> Enquire About This Category</button>
+          <button class="btn btn-outline-blue" onclick="openHollowareGallery()"><i class="fa-solid fa-images"></i> View Our Instruments</button>
+        </div>
       </div>
     </div>
 
@@ -211,7 +214,7 @@
     <!-- 5. Medical Equipment / Device -->
     <div class="prod-detail" id="medequip">
       <div class="prod-img">
-        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80" alt="Medical Equipment" />
+        <img src="images/miraq.png" alt="MIRA Q – Medistem Norway TTFM & Imaging Technology" />
       </div>
       <div class="prod-info">
         <div class="cat-tag"><i class="fa-solid fa-stethoscope"></i> Medical Equipment / Device</div>
@@ -331,7 +334,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="logo.png" width="40" height="40" alt="Logo" />
+          <img src="images/logo.png" width="40" height="40" alt="Logo" />
           <div><div class="n1">Central Surgical Concern Pvt. Ltd.</div><div class="n2">Kathmandu, Nepal</div></div>
         </div>
         <p>Nepal's trusted importer of world-class medical equipment and surgical supplies since 2012.</p>
@@ -372,6 +375,58 @@
   <a href="tel:+97715242590" class="float-btn call"><span class="float-tooltip">+977 1-5242590 (Office Hours)</span><i class="fa-solid fa-phone"></i></a>
 </div>
 
+<!-- HOLLOWARE GALLERY MODAL -->
+<div class="modal-backdrop" id="hollowareModal" onclick="closeHollowareOnBackdrop(event)">
+  <div style="background:white; border-radius:20px; padding:32px; width:92%; max-width:600px; max-height:90vh; overflow-y:auto; box-shadow:0 24px 64px rgba(0,0,0,0.25); position:relative; animation:popIn 0.22s ease;">
+    <button onclick="closeHollowareGallery()" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:22px; cursor:pointer; color:#475569;">✕</button>
+    <h3 style="font-size:20px; font-weight:800; margin-bottom:6px;">Surgical Instruments</h3>
+    <p style="font-size:14px; color:#475569; margin-bottom:20px;">Click any image to view full size.</p>
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:20px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/holloware.png" alt="Surgical Holloware" style="max-width:100%; max-height:220px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 16px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">Surgical Holloware</div>
+          <div style="font-size:12px; color:#475569; margin-top:2px;">Stainless steel kidney trays, bowls, basins &amp; instrument containers.</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:20px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/nailcutter.png" alt="Nail Cutter" style="max-width:100%; max-height:220px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 16px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">Nail Cutter</div>
+          <div style="font-size:12px; color:#475569; margin-top:2px;">High-quality stainless steel nail cutter with safety lock and rust-resistant finish.</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:20px; text-align:center;">
+      <button class="btn btn-blue" onclick="closeHollowareGallery(); openModal('Surgical Instruments');"><i class="fa-solid fa-paper-plane"></i> Enquire About This Product</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="nailcutterModal" onclick="if(event.target===this)closeNailcutterGallery()">
+  <div style="background:white; border-radius:20px; padding:32px; width:92%; max-width:520px; max-height:90vh; overflow-y:auto; box-shadow:0 24px 64px rgba(0,0,0,0.25); position:relative; animation:popIn 0.22s ease;">
+    <button onclick="closeNailcutterGallery()" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:22px; cursor:pointer; color:#475569;">✕</button>
+    <h3 style="font-size:20px; font-weight:800; margin-bottom:6px;">Nail Cutter</h3>
+    <p style="font-size:14px; color:#475569; margin-bottom:20px;">Precision stainless steel nail cutter. Click to view full size.</p>
+    <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+      <div style="padding:24px; display:flex; align-items:center; justify-content:center; min-height:280px;">
+        <img src="images/nailcutter.png" alt="Nail Cutter" style="max-width:100%; max-height:260px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+      </div>
+      <div style="padding:14px 18px; border-top:1px solid #e2e8f0; background:white;">
+        <div style="font-size:13px; font-weight:700; color:#1e293b;">Nail Cutter</div>
+        <div style="font-size:12px; color:#475569; margin-top:3px;">High-quality stainless steel nail cutter with safety lock, ergonomic design and rust-resistant finish.</div>
+      </div>
+    </div>
+    <div style="margin-top:20px; text-align:center;">
+      <button class="btn btn-blue" onclick="closeNailcutterGallery(); openModal('Surgical Instruments');"><i class="fa-solid fa-paper-plane"></i> Enquire About This Product</button>
+    </div>
+  </div>
+</div>
+
 <!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; cursor:default; padding:20px;">
   <button onclick="closeLightbox()" style="position:absolute; top:20px; right:24px; background:none; border:none; color:white; font-size:28px; cursor:pointer; z-index:10000;">✕</button>
@@ -381,40 +436,84 @@
 
 <!-- EQUIPMENT GALLERY MODAL -->
 <div class="modal-backdrop" id="equipGalleryModal" onclick="closeEquipGalleryOnBackdrop(event)">
-  <div style="background:white; border-radius:20px; padding:36px; width:94%; max-width:960px; max-height:92vh; overflow-y:auto; box-shadow:0 24px 64px rgba(0,0,0,0.25); position:relative; animation:popIn 0.22s ease;">
+  <div style="background:white; border-radius:20px; padding:36px; width:94%; max-width:1000px; max-height:92vh; overflow-y:auto; box-shadow:0 24px 64px rgba(0,0,0,0.25); position:relative; animation:popIn 0.22s ease;">
     <button onclick="closeEquipGallery()" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:22px; cursor:pointer; color:#475569;">✕</button>
     <div style="margin-bottom:24px;">
-      <div style="font-size:12px; font-weight:700; color:#1a4f8a; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Designs for Vision — USA</div>
-      <h3 style="font-size:22px; font-weight:800; margin-bottom:6px;">Surgical Loupes &amp; Headlight</h3>
-      <p style="font-size:14px; color:#475569;">Premium optical equipment engineered for surgical precision and all-day comfort.</p>
+      <h3 style="font-size:22px; font-weight:800; margin-bottom:6px;">Specialist Medical Equipment</h3>
+      <p style="font-size:14px; color:#475569;">Click any image to view in full size.</p>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
-      <div style="border:1px solid #e2e8f0; border-radius:16px; overflow:hidden; background:#f8fafc;">
-        <div style="padding:20px; display:flex; align-items:center; justify-content:center; min-height:280px;">
-          <img src="micro.PNG" alt="3.5x Micro Expanded Field View Loupe" style="max-width:100%; max-height:260px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:16px; display:flex; align-items:center; justify-content:center; height:200px;">
+          <img src="images/micro.PNG" alt="3.5x Micro Expanded Field View Loupe" style="max-width:100%; max-height:180px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
         </div>
-        <div style="padding:16px 20px; border-top:1px solid #e2e8f0; background:white;">
-          <div style="font-size:14px; font-weight:800; color:#1e293b; margin-bottom:4px;">3.5x Micro Expanded Field View</div>
-          <div style="font-size:13px; color:#475569; line-height:1.6;">Detailed clarity for precise visualization. Wider, more natural view with less eye fatigue. Lightweight &amp; durable.</div>
-        </div>
-      </div>
-      <div style="border:1px solid #e2e8f0; border-radius:16px; overflow:hidden; background:#f8fafc;">
-        <div style="padding:20px; display:flex; align-items:center; justify-content:center; min-height:280px;">
-          <img src="panaromic.PNG" alt="3.5x Panoramic Field Loupe" style="max-width:100%; max-height:260px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
-        </div>
-        <div style="padding:16px 20px; border-top:1px solid #e2e8f0; background:white;">
-          <div style="font-size:14px; font-weight:800; color:#1e293b; margin-bottom:4px;">3.5x Panoramic Field</div>
-          <div style="font-size:13px; color:#475569; line-height:1.6;">Expanded panoramic field of view for greater efficiency. Enhanced clarity with ergonomic, all-day comfort design.</div>
+        <div style="padding:12px 14px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">3.5x Micro Expanded Field View Loupe</div>
+          <div style="font-size:12px; color:#1a4f8a; margin-top:2px;">Designs for Vision — USA</div>
         </div>
       </div>
-    </div>
-    <div style="border:1px solid #e2e8f0; border-radius:16px; overflow:hidden; background:#f8fafc; display:grid; grid-template-columns:1fr 1fr; gap:0;">
-      <div style="padding:24px; display:flex; align-items:center; justify-content:center; min-height:240px;">
-        <img src="led.PNG" alt="Ultra Mini HDi Headlight" style="max-width:100%; max-height:220px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:16px; display:flex; align-items:center; justify-content:center; height:200px;">
+          <img src="images/panaromic.PNG" alt="3.5x Panoramic Field Loupe" style="max-width:100%; max-height:180px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 14px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">3.5x Panoramic Field Loupe</div>
+          <div style="font-size:12px; color:#1a4f8a; margin-top:2px;">Designs for Vision — USA</div>
+        </div>
       </div>
-      <div style="padding:24px; display:flex; flex-direction:column; justify-content:center; border-left:1px solid #e2e8f0; background:white;">
-        <div style="font-size:14px; font-weight:800; color:#1e293b; margin-bottom:8px;">Ultra Mini HDi Headlight</div>
-        <div style="font-size:13px; color:#475569; line-height:1.7;">High-intensity LED for crisp, clear visibility. Ultra compact &amp; lightweight for all-day wear. Adjustable focus with long battery life. Engineered in the USA by Designs for Vision.</div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:16px; display:flex; align-items:center; justify-content:center; height:200px;">
+          <img src="images/led.PNG" alt="Ultra Mini HDi Headlight" style="max-width:100%; max-height:180px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 14px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">Ultra Mini HDi Headlight</div>
+          <div style="font-size:12px; color:#1a4f8a; margin-top:2px;">Designs for Vision — USA</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:16px; display:flex; align-items:center; justify-content:center; height:200px;">
+          <img src="images/headlight.png" alt="Surgical Headlight" style="max-width:100%; max-height:180px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 14px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">Surgical Headlight</div>
+          <div style="font-size:12px; color:#475569; margin-top:2px;">High-intensity surgical illumination</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:16px; display:flex; align-items:center; justify-content:center; height:200px;">
+          <img src="images/biosafetycabinet acco.png" alt="Biosafety Cabinet" style="max-width:100%; max-height:180px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 14px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">Biosafety Cabinet</div>
+          <div style="font-size:12px; color:#475569; margin-top:2px;">Class II biological safety cabinet</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:16px; display:flex; align-items:center; justify-content:center; height:200px;">
+          <img src="images/rfdevice.png" alt="RF Electrosurgical Device" style="max-width:100%; max-height:180px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 14px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">RF Electrosurgical Device</div>
+          <div style="font-size:12px; color:#475569; margin-top:2px;">Radiofrequency surgical unit</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:16px; display:flex; align-items:center; justify-content:center; height:200px;">
+          <img src="images/smokeevacuator.png" alt="Smoke Evacuator" style="max-width:100%; max-height:180px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 14px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">Smoke Evacuator</div>
+          <div style="font-size:12px; color:#475569; margin-top:2px;">Surgical smoke removal system</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden; background:#f8fafc;">
+        <div style="padding:16px; display:flex; align-items:center; justify-content:center; height:200px;">
+          <img src="images/biodop7.png" alt="Vascular Doppler BIODOP 7 – Hedico Japan" style="max-width:100%; max-height:180px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:12px 14px; border-top:1px solid #e2e8f0; background:white;">
+          <div style="font-size:13px; font-weight:700; color:#1e293b;">Vascular Doppler BIODOP 7</div>
+          <div style="font-size:12px; color:#1a4f8a; margin-top:2px;">Hedico — Japan</div>
+        </div>
       </div>
     </div>
     <div style="margin-top:24px; text-align:center;">
@@ -425,14 +524,14 @@
 
 <!-- BED GALLERY MODAL -->
 <div class="modal-backdrop" id="galleryModal" onclick="closeGalleryOnBackdrop(event)">
-  <div style="background:white; border-radius:20px; padding:32px; width:92%; max-width:860px; max-height:90vh; overflow-y:auto; box-shadow:0 24px 64px rgba(0,0,0,0.25); position:relative; animation:popIn 0.22s ease;">
+  <div style="background:white; border-radius:20px; padding:32px; width:92%; max-width:960px; max-height:90vh; overflow-y:auto; box-shadow:0 24px 64px rgba(0,0,0,0.25); position:relative; animation:popIn 0.22s ease;">
     <button onclick="closeGallery()" style="position:absolute; top:16px; right:20px; background:none; border:none; font-size:22px; cursor:pointer; color:#475569;">✕</button>
-    <h3 style="font-size:20px; font-weight:800; margin-bottom:6px;">Electric Hospital Beds</h3>
-    <p style="font-size:14px; color:#475569; margin-bottom:24px;">We import premium electric hospital beds from internationally certified manufacturers.</p>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+    <h3 style="font-size:20px; font-weight:800; margin-bottom:6px;">Hospital Furniture</h3>
+    <p style="font-size:14px; color:#475569; margin-bottom:24px;">Click any image to view in full size.</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
       <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden;">
         <div style="background:#f8fafc; padding:16px; height:260px; display:flex; align-items:center; justify-content:center;">
-          <img src="linet.png" alt="Electric Hospital Bed – LINET" style="max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/linet.png" alt="Electric Hospital Bed – LINET" style="max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
         </div>
         <div style="padding:16px;">
           <div style="font-size:13px; font-weight:700; color:#1a4f8a; margin-bottom:4px;">LINET — Czech Republic</div>
@@ -441,16 +540,34 @@
       </div>
       <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden;">
         <div style="background:#f8fafc; padding:16px; height:260px; display:flex; align-items:center; justify-content:center;">
-          <img src="meditek.png" alt="Electric Hospital Bed – Meditek" style="max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+          <img src="images/meditek.png" alt="Electric Hospital Bed – Meditek" style="max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
         </div>
         <div style="padding:16px;">
           <div style="font-size:13px; font-weight:700; color:#1a4f8a; margin-bottom:4px;">Meditek Engineers — India</div>
           <div style="font-size:13px; color:#475569; line-height:1.6;">Comfort, safety &amp; reliability. Electric backrest, leg rest &amp; height control with ABS safety side rails.</div>
         </div>
       </div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden;">
+        <div style="background:#f8fafc; padding:16px; height:260px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/ottable.png" alt="Operation Table" style="max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:16px;">
+          <div style="font-size:13px; font-weight:700; color:#1a4f8a; margin-bottom:4px;">Operation Table</div>
+          <div style="font-size:13px; color:#475569; line-height:1.6;">Adjustable surgical OT table for theatres and procedure rooms.</div>
+        </div>
+      </div>
+      <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden;">
+        <div style="background:#f8fafc; padding:16px; height:260px; display:flex; align-items:center; justify-content:center;">
+          <img src="images/chair.png" alt="Operating Chair – Taiwan" style="max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
+        </div>
+        <div style="padding:16px;">
+          <div style="font-size:13px; font-weight:700; color:#1a4f8a; margin-bottom:4px;">Operating Chair</div>
+          <div style="font-size:13px; color:#475569; line-height:1.6;">Ergonomic surgical chair with 360° swivel, height adjustment and locking system — Taiwan.</div>
+        </div>
+      </div>
     </div>
     <div style="margin-top:20px; text-align:center;">
-      <button class="btn btn-blue" onclick="closeGallery(); openModal('Hospital Furniture');"><i class="fa-solid fa-paper-plane"></i> Enquire About These Beds</button>
+      <button class="btn btn-blue" onclick="closeGallery(); openModal('Hospital Furniture');"><i class="fa-solid fa-paper-plane"></i> Enquire About These Products</button>
     </div>
   </div>
 </div>
@@ -482,6 +599,11 @@ function closeLightbox() {
   document.getElementById('lightbox').style.display = 'none';
   document.body.style.overflow = '';
 }
+function openHollowareGallery() { document.getElementById('hollowareModal').classList.add('open'); }
+function closeHollowareGallery() { document.getElementById('hollowareModal').classList.remove('open'); }
+function closeHollowareOnBackdrop(e) { if (e.target === document.getElementById('hollowareModal')) closeHollowareGallery(); }
+function openNailcutterGallery() { document.getElementById('nailcutterModal').classList.add('open'); }
+function closeNailcutterGallery() { document.getElementById('nailcutterModal').classList.remove('open'); }
 function openEquipGallery() { document.getElementById('equipGalleryModal').classList.add('open'); }
 function closeEquipGallery() { document.getElementById('equipGalleryModal').classList.remove('open'); }
 function closeEquipGalleryOnBackdrop(e) { if (e.target === document.getElementById('equipGalleryModal')) closeEquipGallery(); }
