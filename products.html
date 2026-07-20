@@ -372,6 +372,12 @@
   <a href="tel:+97715242590" class="float-btn call"><span class="float-tooltip">+977 1-5242590 (Office Hours)</span><i class="fa-solid fa-phone"></i></a>
 </div>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:9999; align-items:center; justify-content:center; cursor:zoom-out; padding:20px;">
+  <button onclick="closeLightbox()" style="position:absolute; top:20px; right:24px; background:none; border:none; color:white; font-size:28px; cursor:pointer; z-index:10000;">✕</button>
+  <img id="lightboxImg" src="" alt="" style="max-width:92vw; max-height:88vh; object-fit:contain; border-radius:10px; box-shadow:0 8px 48px rgba(0,0,0,0.6);" onclick="event.stopPropagation()" />
+</div>
+
 <!-- EQUIPMENT GALLERY MODAL -->
 <div class="modal-backdrop" id="equipGalleryModal" onclick="closeEquipGalleryOnBackdrop(event)">
   <div style="background:white; border-radius:20px; padding:36px; width:94%; max-width:960px; max-height:92vh; overflow-y:auto; box-shadow:0 24px 64px rgba(0,0,0,0.25); position:relative; animation:popIn 0.22s ease;">
@@ -384,7 +390,7 @@
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
       <div style="border:1px solid #e2e8f0; border-radius:16px; overflow:hidden; background:#f8fafc;">
         <div style="padding:20px; display:flex; align-items:center; justify-content:center; min-height:280px;">
-          <img src="micro.PNG" alt="3.5x Micro Expanded Field View Loupe" style="max-width:100%; max-height:260px; object-fit:contain;" />
+          <img src="micro.PNG" alt="3.5x Micro Expanded Field View Loupe" style="max-width:100%; max-height:260px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
         </div>
         <div style="padding:16px 20px; border-top:1px solid #e2e8f0; background:white;">
           <div style="font-size:14px; font-weight:800; color:#1e293b; margin-bottom:4px;">3.5x Micro Expanded Field View</div>
@@ -393,7 +399,7 @@
       </div>
       <div style="border:1px solid #e2e8f0; border-radius:16px; overflow:hidden; background:#f8fafc;">
         <div style="padding:20px; display:flex; align-items:center; justify-content:center; min-height:280px;">
-          <img src="panaromic.PNG" alt="3.5x Panoramic Field Loupe" style="max-width:100%; max-height:260px; object-fit:contain;" />
+          <img src="panaromic.PNG" alt="3.5x Panoramic Field Loupe" style="max-width:100%; max-height:260px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
         </div>
         <div style="padding:16px 20px; border-top:1px solid #e2e8f0; background:white;">
           <div style="font-size:14px; font-weight:800; color:#1e293b; margin-bottom:4px;">3.5x Panoramic Field</div>
@@ -403,7 +409,7 @@
     </div>
     <div style="border:1px solid #e2e8f0; border-radius:16px; overflow:hidden; background:#f8fafc; display:grid; grid-template-columns:1fr 1fr; gap:0;">
       <div style="padding:24px; display:flex; align-items:center; justify-content:center; min-height:240px;">
-        <img src="led.PNG" alt="Ultra Mini HDi Headlight" style="max-width:100%; max-height:220px; object-fit:contain;" />
+        <img src="led.PNG" alt="Ultra Mini HDi Headlight" style="max-width:100%; max-height:220px; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
       </div>
       <div style="padding:24px; display:flex; flex-direction:column; justify-content:center; border-left:1px solid #e2e8f0; background:white;">
         <div style="font-size:14px; font-weight:800; color:#1e293b; margin-bottom:8px;">Ultra Mini HDi Headlight</div>
@@ -425,7 +431,7 @@
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
       <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden;">
         <div style="background:#f8fafc; padding:16px; height:260px; display:flex; align-items:center; justify-content:center;">
-          <img src="linet.png" alt="Electric Hospital Bed – LINET" style="max-width:100%; max-height:100%; object-fit:contain;" />
+          <img src="linet.png" alt="Electric Hospital Bed – LINET" style="max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
         </div>
         <div style="padding:16px;">
           <div style="font-size:13px; font-weight:700; color:#1a4f8a; margin-bottom:4px;">LINET — Czech Republic</div>
@@ -434,7 +440,7 @@
       </div>
       <div style="border:1px solid #e2e8f0; border-radius:14px; overflow:hidden;">
         <div style="background:#f8fafc; padding:16px; height:260px; display:flex; align-items:center; justify-content:center;">
-          <img src="meditek.png" alt="Electric Hospital Bed – Meditek" style="max-width:100%; max-height:100%; object-fit:contain;" />
+          <img src="meditek.png" alt="Electric Hospital Bed – Meditek" style="max-width:100%; max-height:100%; object-fit:contain; cursor:zoom-in;" onclick="openLightbox(this.src, this.alt)" />
         </div>
         <div style="padding:16px;">
           <div style="font-size:13px; font-weight:700; color:#1a4f8a; margin-bottom:4px;">Meditek Engineers — India</div>
@@ -464,6 +470,17 @@
 </div>
 
 <script>
+function openLightbox(src, alt) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxImg').alt = alt;
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
 function openEquipGallery() { document.getElementById('equipGalleryModal').classList.add('open'); }
 function closeEquipGallery() { document.getElementById('equipGalleryModal').classList.remove('open'); }
 function closeEquipGalleryOnBackdrop(e) { if (e.target === document.getElementById('equipGalleryModal')) closeEquipGallery(); }
