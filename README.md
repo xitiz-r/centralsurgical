@@ -4,6 +4,8 @@ A responsive, multi-page website for **Central Surgical Concern**, a medical equ
 
 Built from scratch with plain **HTML and CSS** — no frameworks or site builders.
 
+🌐 **Live site:** https://xitiz-r.github.io/centralsurgical/
+
 ## Pages
 
 | Page | Contents |
